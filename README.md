@@ -1,19 +1,46 @@
 # mcp-apps
 
-Build interactive UI applications that render inside MCP hosts (Claude Desktop, ChatGPT, VS Code, etc.) using the Model Context Protocol Apps Extension (SEP-1865).
+Build interactive UI applications that render inside MCP hosts using the `create-mcp-app` skill.
 
-## Getting Started
+## Quick Start
 
-See [PLAN.md](./PLAN.md) for a comprehensive development plan including:
+### 1. Install the Skill
 
-- **Project Structure**: Recommended monorepo layout
-- **10 Example Apps**: From beginner (Hello World) to advanced (3D Viewer)
-- **Implementation Guidelines**: UI resources, tool linking, HTML structure
-- **Best Practices**: Security, performance, UX patterns
-- **Roadmap**: Phased development approach
+**Claude Code Plugin:**
+```bash
+/plugin marketplace add modelcontextprotocol/ext-apps
+/plugin install mcp-apps@modelcontextprotocol-ext-apps
+```
 
-## Quick Links
+**Manual (Global):**
+```bash
+git clone https://github.com/modelcontextprotocol/ext-apps.git
+cp -r ext-apps/plugins/mcp-apps/skills/create-mcp-app ~/.claude/skills/create-mcp-app
+```
 
-- [MCP Apps Specification](https://github.com/modelcontextprotocol/ext-apps)
-- [Official SDK](https://www.npmjs.com/package/@modelcontextprotocol/ext-apps)
+### 2. Create Your App
+
+Ask your agent:
+```
+Create an MCP App that displays a color picker
+```
+
+### 3. Run Your App
+
+```bash
+npm install && npm run build && npm run serve
+```
+
+## Documentation
+
+See [PLAN.md](./PLAN.md) for:
+- Installation details
+- Example prompts
+- Generated architecture
+- Best practices
+
+## Resources
+
+- [MCP Apps Extension](https://github.com/modelcontextprotocol/ext-apps)
+- [Specification (SEP-1865)](https://github.com/modelcontextprotocol/ext-apps/blob/main/specification/2026-01-26/apps.mdx)
 - [MCP Protocol Docs](https://modelcontextprotocol.io)
