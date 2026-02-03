@@ -1,0 +1,31 @@
+{
+  "name": "mcp-color-picker",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP App that displays an interactive color picker",
+  "license": "MIT",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc --noEmit && cross-env INPUT=mcp-app.html vite build && tsc -p tsconfig.server.json && tsx --tsconfig tsconfig.server.json -e \"import { build } from 'esbuild'; build({ entryPoints: ['server.ts'], outdir: 'dist', platform: 'node', format: 'esm', bundle: true, external: ['@modelcontextprotocol/*', 'express', 'cors', 'zod'] }).catch(() => process.exit(1));\" && tsx --tsconfig tsconfig.server.json -e \"import { build } from 'esbuild'; build({ entryPoints: ['main.ts'], outfile: 'dist/index.js', platform: 'node', format: 'esm', bundle: true, external: ['./server.js', '@modelcontextprotocol/*', 'express', 'cors', 'zod'], banner: { js: '#!/usr/bin/env node' } }).catch(() => process.exit(1));\"",
+    "serve": "tsx main.ts",
+    "start": "npm run build && npm run serve"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.24.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.0",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0",
+    "vite-plugin-singlefile": "^2.0.0"
+  }
+}

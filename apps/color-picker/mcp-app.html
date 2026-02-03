@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Color Picker</title>
+</head>
+<body>
+  <main class="main">
+    <h2 class="title">Color Picker</h2>
+
+    <div class="picker-container">
+      <div class="color-preview" id="color-preview">
+        <div class="preview-inner" id="preview-inner"></div>
+      </div>
+
+      <div class="color-input-row">
+        <label for="color-input">Pick a color:</label>
+        <input type="color" id="color-input" value="#3b82f6">
+      </div>
+
+      <div class="hex-input-row">
+        <label for="hex-input">Hex:</label>
+        <input type="text" id="hex-input" value="#3b82f6" maxlength="7" placeholder="#000000">
+      </div>
+
+      <div class="sliders">
+        <div class="slider-row">
+          <label>R:</label>
+          <input type="range" id="r-slider" min="0" max="255" value="59">
+          <span id="r-value">59</span>
+        </div>
+        <div class="slider-row">
+          <label>G:</label>
+          <input type="range" id="g-slider" min="0" max="255" value="130">
+          <span id="g-value">130</span>
+        </div>
+        <div class="slider-row">
+          <label>B:</label>
+          <input type="range" id="b-slider" min="0" max="255" value="246">
+          <span id="b-value">246</span>
+        </div>
+      </div>
+
+      <div class="color-values">
+        <div class="value-row">
+          <span class="label">RGB:</span>
+          <code id="rgb-display">rgb(59, 130, 246)</code>
+        </div>
+        <div class="value-row">
+          <span class="label">HSL:</span>
+          <code id="hsl-display">hsl(217, 91%, 60%)</code>
+        </div>
+      </div>
+
+      <button id="submit-btn" class="submit-btn">Use This Color</button>
+    </div>
+
+    <p class="status" id="status"></p>
+  </main>
+  <script type="module" src="/src/mcp-app.ts"></script>
+</body>
+</html>
